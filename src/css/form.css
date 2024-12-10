@@ -93,3 +93,13 @@
     transform: rotate(360deg);
   }
 }
+
+.load-more-btn{
+  padding: 8px;
+  border-radius: 20px;
+  display: block;
+  min-width: 125px;
+  margin: 20px auto;
+  background-color: #4E75FF;
+  color: #ffffff;
+}
