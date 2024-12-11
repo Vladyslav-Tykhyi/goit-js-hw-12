@@ -44,14 +44,18 @@ async function fetchImages(isLoadMore = false) {
   const params = {
     q: searchQuery,
     page: currentPage,
-    per_page: 15,
+    per_page: 40,
+    image_type: "photo",
+    orientation: "horizontal",
+    safesearch: true,
   };
 
   try {
+    const loaderHTML = '<span class="loader"></span>';
     if (!isLoadMore) {
-      gallery.innerHTML = '<span class="loader"></span>';
+      gallery.innerHTML = loaderHTML;
     } else {
-      loadMoreBtn.insertAdjacentHTML('afterend', '<span class="loader"></span>');
+      loadMoreBtn.insertAdjacentHTML('afterend', loaderHTML);
     }
 
     const data = await fetchRequest(undefined, params);
@@ -95,6 +99,8 @@ async function fetchImages(isLoadMore = false) {
     });
     gallery.innerHTML = "";
   } finally {
+    const loader = document.querySelector(".loader");
+    if (loader) loader.remove();
     input.value = "";
   }
 }
