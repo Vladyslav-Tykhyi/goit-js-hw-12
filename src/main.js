@@ -44,7 +44,7 @@ async function fetchImages(isLoadMore = false) {
   const params = {
     q: searchQuery,
     page: currentPage,
-    per_page: 40,
+    per_page: 15,
     image_type: "photo",
     orientation: "horizontal",
     safesearch: true,
